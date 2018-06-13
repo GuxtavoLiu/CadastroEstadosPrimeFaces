@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+	<h:form>
+		<label>Estado</label>
+		<h:inputText value="#{cadastroMB.cadastro.nome}" />
+		<br />
+		<label>Sigla</label>
+		<h:inputText value="#{cadastroMB.cadastro.sigla}" />
+		<br />
+		<label>Código</label>
+		<h:inputText value="#{cadastroMB.cadastro.codigo}" />
+		<br />
+		<h:commandButton update="formTableEstado"
+			action="#{cadastroMB.cadastrar()}" value="Mostrar Estado e Sigla" />
+
+	</h:form>
+
+	<h:form id="formTableEstado">
+		<p:dataTable value="#{cadastroMB.cadastros}" var="est">
+			<p:column headerText="Estado">
+				<h:outputText value="#{est.nome}" />
+			</p:column>
+			<p:column headerText="Sigla">
+				<h:outputText value="#{est.sigla}" />
+			</p:column>
+			<p:column headerText="Código">
+				<h:outputText value="#{est.codigo}" />
+			</p:column>
+			<p:column headerText="Quantidade de Caracteres">
+				<h:outputText value="#{est.qtdeCaracteres}" />
+			</p:column>
+
+
+
+		</p:dataTable>
+
+	</h:form>
+</body>
+</html>
